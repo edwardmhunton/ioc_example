@@ -8,8 +8,10 @@ const FactoryWheels = require('./factoryWheels');
 
 function configureContainer (wheels){
 
+  //console.log(wheels);
+
   var container = new Container();
-  container.registerComponentImp('wheel_builder', [wheels], []);
+  container.registerComponentImp('wheel_builder', wheels, []);
   container.registerComponentImp('bike_builder', BikeBuilder, ['wheel_builder']);
 
   return container;
@@ -18,13 +20,23 @@ function configureContainer (wheels){
 
 function buildABike (wheels){
 
-  container = configureContainer(wheels);
+  if(wheels === 'HandBuiltWheels'){
+    w = HandBuiltWheels;
+  } else {
+    w = FactoryWheels;
+  }
+
+  container = configureContainer(w);
   var b = container.getImplementaion('bike_builder');
 
-  b.wheel_builder.addWheels();
+  console.log(b.wheel_builder.addWheels());
+
+  console.log("Your Wheels Are Ready");
 
 
 
 }
 
-buildABike(wheels);
+
+
+buildABike(process.argv[2]);

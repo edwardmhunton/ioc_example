@@ -20,6 +20,7 @@ var HandBuiltWheels = function(){
 
 
         loadSpokes = function(h, s, w){
+               console.log("...load spokes");
                w.hub = h;
                w.spokes = s;
 
@@ -27,6 +28,7 @@ var HandBuiltWheels = function(){
         }
 
         addNipples = function(r, n, w){
+                console.log("...add nipples");
                 w.rim = r;
                 w.nipples = n;
 
@@ -34,12 +36,12 @@ var HandBuiltWheels = function(){
         }
 
         centre = function(w){
-              console.log("centering");
+              console.log("...centering");
               return w;
         }
 
         finalTrue = function(w){
-              console.log("truing");
+              console.log("...truing");
               return w;
         }
 
@@ -49,6 +51,8 @@ var HandBuiltWheels = function(){
           console.log("Adding Wheels");
 
          return finalTrue(centre(addNipples(rim, nipples, loadSpokes(hub, spokes, wheel))));
+
+         
 
        }
 
