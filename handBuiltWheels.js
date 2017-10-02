@@ -46,7 +46,9 @@ var HandBuiltWheels = function(){
 
         function addWheels(){
 
-         finalTrue(centre(addNipples(rim, nipples, loadSpokes(hub, spokes, wheel))));
+          console.log("Adding Wheels");
+
+         return finalTrue(centre(addNipples(rim, nipples, loadSpokes(hub, spokes, wheel))));
 
        }
 

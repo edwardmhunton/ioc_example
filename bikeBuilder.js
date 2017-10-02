@@ -1,9 +1,9 @@
 
 
-var BikeBuilder = function(wheels){
+var BikeBuilder = function(deps){
 
-      this.wheels = wheels;
+  this.wheel_builder = deps.wheel_builder;
 
-}
+};
 
 module.exports = BikeBuilder;

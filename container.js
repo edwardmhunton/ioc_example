@@ -5,28 +5,21 @@
 
 
         function registerComponentImp(name, implementation, deps){
-
-      //  console.log("REGISTERED: "+name, implementation, deps)
-
           services[name] = {implementation:implementation, deps:deps};
-
-          //console.log("services: "+services);
-
         }
 
-        function getDeps(deps){
+        function getDeps(deps){ /// loop through the deps associated with an implementation and return them in a json to the constructor
 
           var depObjs = {};
           var d;
 
           for(var i = 0; i < deps.length; i++){
+
             var dep = deps[i];
+            d = services[dep].implementation;
+            depObjs[dep] = new d();
 
-
-                  d = services[dep].implementation;
-                  depObjs[dep] = new d();
-
-          }
+          };
 
           return depObjs;
 
@@ -34,8 +27,6 @@
         }
 
         function getImplementaion(name){
-
-
 
           var cla = services[name];
 

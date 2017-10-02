@@ -1,40 +1,30 @@
 
-const Container = require('./container.js');
-const BikeBuilder = require('./bikeBuilder.js');
-const WheelBuilderInterface = require('./wheelBuilderInterface.js');
+const Container = require('./container');
+const BikeBuilder = require('./bikeBuilder');
 const HandBuiltWheels = require('./handbuiltwheels');
+const FactoryWheels = require('./factoryWheels');
 
 
 
-var parts = {
-  "rim":"mavic",
-  "hub":"SOL",
-  "spokes":28,
-  "disc":true
+function configureContainer (wheels){
 
-}
+  var container = new Container();
+  container.registerComponentImp('wheel_builder', [wheels], []);
+  container.registerComponentImp('bike_builder', BikeBuilder, ['wheel_builder']);
 
-
-
-function configureContainer (){
-
-var container = new Container();
-container.registerComponentImp('wheel_builder', HandBuiltWheels, []);
-container.registerComponentImp('bike_builder', BikeBuilder, ['wheel_builder'])
-
-return container;
+  return container;
 
 }
 
-function buildABike (){
+function buildABike (wheels){
 
-  container = configureContainer();
+  container = configureContainer(wheels);
   var b = container.getImplementaion('bike_builder');
 
-  console.log(b.wheels);
+  b.wheel_builder.addWheels();
 
 
 
 }
 
-buildABike();
+buildABike(wheels);
