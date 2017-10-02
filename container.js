@@ -1,26 +1,45 @@
 
  var Container = function(){
 
-        var services = [];
+        var services = {};
 
 
-        function registerComponentImp(interface, implementation, deps, params){
+        function registerComponentImp(name, implementation, deps){
 
-          console.log("REGISTERED: "+interface,implementation, params)
+      //  console.log("REGISTERED: "+name, implementation, deps)
 
-          services.push({interface:{deps:deps, implementation:implementation, params:params}});
+          services[name] = {implementation:implementation, deps:deps};
 
-          console.log("services: "+services);
+          //console.log("services: "+services);
 
         }
 
-        function getImplementaion(interface){
+        function getDeps(deps){
 
-          var cla = services[interface];
+          var depObjs = {};
+          var d;
 
-          console.log(cla);
+          for(var i = 0; i < deps.length; i++){
+            var dep = deps[i];
 
-                return new cla;
+
+                  d = services[dep].implementation;
+                  depObjs[dep] = new d();
+
+          }
+
+          return depObjs;
+
+
+        }
+
+        function getImplementaion(name){
+
+
+
+          var cla = services[name];
+
+          return new cla.implementation(getDeps(cla.deps)); // pass dependencies into the implementations constructor
 
         }
 

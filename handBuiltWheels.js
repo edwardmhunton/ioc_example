@@ -1,33 +1,59 @@
 
-var handMadewheelConstructor = function(){
+const Jib = require('./wheelparts/jib.js');
+const Rim = require('./wheelparts/rim.js');
+const Spokes = require('./wheelparts/spokes.js');
+const Hub = require('./wheelparts/hub.js');
+const Nipples = require('./wheelparts/nipples.js');
+
+const SPOKE_NUM = 28;
+
+
+var HandBuiltWheels = function(){
 
           jib = new Jib();
           rim = new Rim();
-          spokes = new Spokes();
+          spokes = new Spokes(SPOKE_NUM);
           hub = new Hub();
-          nipples = new Nipples();
+          nipples = new Nipples(SPOKE_NUM);
+
+          wheel =  {};
 
 
+        loadSpokes = function(h, s, w){
+               w.hub = h;
+               w.spokes = s;
 
-
-        loadSpokes = function(){
-
+               return w;
         }
 
-        addNipples = function(){
+        addNipples = function(r, n, w){
+                w.rim = r;
+                w.nipples = n;
 
+                return w;
         }
 
-        centre = function(){
-
+        centre = function(w){
+              console.log("centering");
+              return w;
         }
 
-        finalTrue = function(){
-
+        finalTrue = function(w){
+              console.log("truing");
+              return w;
         }
 
-return   fincalTrue(centre(addNipples(rim, nipples, loadSpokes(hub, spokes))));
+
+        function addWheels(){
+
+         finalTrue(centre(addNipples(rim, nipples, loadSpokes(hub, spokes, wheel))));
+
+       }
+
+       return {
+         addWheels: addWheels
+       }
 
 }
 
-return handMadewheelConstructor;
+module.exports = HandBuiltWheels;

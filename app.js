@@ -19,8 +19,8 @@ var parts = {
 function configureContainer (){
 
 var container = new Container();
-container.registerComponentImp(WheelBuilderInterface, HandBuiltWheels, parts);
-container.registerComponentImp(BikeBuilder)
+container.registerComponentImp('wheel_builder', HandBuiltWheels, []);
+container.registerComponentImp('bike_builder', BikeBuilder, ['wheel_builder'])
 
 return container;
 
@@ -29,7 +29,10 @@ return container;
 function buildABike (){
 
   container = configureContainer();
-  container.getImplementaion('BikeBuilder');
+  var b = container.getImplementaion('bike_builder');
+
+  console.log(b.wheels);
+
 
 
 }

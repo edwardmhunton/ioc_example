@@ -1,8 +1,8 @@
 
 
-var BikeBuilder = function(){
+var BikeBuilder = function(wheels){
 
-
+      this.wheels = wheels;
 
 }
 
