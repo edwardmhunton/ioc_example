@@ -25,7 +25,7 @@ function buildABike (wheels){
   }
 
   container = configureContainer(w);
-  var b = container.getImplementaion('bike_builder');
+  var b = container.getImplementation('bike_builder');
 
   console.log(b.wheel_builder.addWheels()); // demonstrates loose coupling as user has no knowledge of how 'addWheels' is performed
 
