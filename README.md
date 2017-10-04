@@ -1,4 +1,4 @@
-# ioc_example in node.js - requires Node > v4 for passing implementation on npm start
+# ioc_example in node.js 
 
 Container provides way of resolving dependencies and abstracting implementation of services.
 
@@ -13,6 +13,8 @@ container.getImplementation('bike_builder');
 To demonstrate the inversion of control I have provided two implementations for 'wheel_buildler': FactoryWheels and HandBuiltWheels. The 'wheel_builder' service can be registered with either of these via the command line by running:
 
 npm start HandBuiltWheels | FactoryWheels
+
+- requires Node > v4 for passing implementation on npm start
 
 
 
