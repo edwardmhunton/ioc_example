@@ -1,12 +1,12 @@
 # ioc_example in node.js
 
-Container provides way of resolving dependencies and abstracting implementaion of services.
+Container provides way of resolving dependencies and abstracting implementation of services.
 
-To populate the contatiner pass in a key, a class (implementaion) and optionally its dependencies as an array:
+To populate the container pass in a key, a class (implementation) and optionally its dependencies as an array:
 
 container.registerComponentImp('bike_builder', BikeBuilder, ['wheel_builder']);
 
-To make use of an implemenation request the service from the container via its key:
+To make use of an implementation request the service from the container via its key:
 
 var b = container.getImplementaion('bike_builder');
 
