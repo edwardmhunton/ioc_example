@@ -1,4 +1,4 @@
-# ioc_example in node.js - requires Node > v4 for passing imp on startup
+# ioc_example in node.js - requires Node > v4 for passing implementation on npm start
 
 Container provides way of resolving dependencies and abstracting implementation of services.
 
