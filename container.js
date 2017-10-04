@@ -32,7 +32,7 @@
 
 
 
-        function getImplementaion(name){
+        function getImplementation(name){
 
           var cla = services[name];
 
@@ -42,7 +42,7 @@
 
         return {
           registerComponentImp: registerComponentImp,
-          getImplementaion: getImplementaion
+          getImplementation: getImplementation
         }
 
 };
