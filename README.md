@@ -1,4 +1,4 @@
-# ioc_example
+# ioc_example in node.js
 
 Container provides way of resolving dependencies and abstracting implementaion of services.
 
