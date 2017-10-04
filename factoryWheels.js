@@ -1,10 +1,11 @@
-var FactoryWheels = function(){
+module.exports = function FactoryWheels(){
 
+  //PUBLIC
 
   function addWheels(){
 
         console.log("not nice");
-        return ["bag of potatos"]; 
+        return ["bag of potatos"];
   }
 
 
@@ -19,5 +20,3 @@ var FactoryWheels = function(){
 
 
 }
-
-module.exports = FactoryWheels;

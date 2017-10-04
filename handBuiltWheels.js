@@ -8,7 +8,9 @@ const Nipples = require('./wheelparts/nipples.js');
 const SPOKE_NUM = 28;
 
 
-var HandBuiltWheels = function(){
+module.exports = function HandBuiltWheels(){
+
+          //PRIVATE
 
           jib = new Jib();
           rim = new Rim();
@@ -46,13 +48,15 @@ var HandBuiltWheels = function(){
         }
 
 
+        //PUBLIC
+
         function addWheels(){
 
           console.log("Adding Wheels");
 
          return finalTrue(centre(addNipples(rim, nipples, loadSpokes(hub, spokes, wheel))));
 
-         
+
 
        }
 
@@ -61,5 +65,3 @@ var HandBuiltWheels = function(){
        }
 
 }
-
-module.exports = HandBuiltWheels;

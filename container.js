@@ -1,14 +1,11 @@
 
- var Container = function(){
+ module.exports = function Container(){
 
         var services = {};
 
+        //PRIVATE
 
-        function registerComponentImp(name, implementation, deps){
-          services[name] = {implementation:implementation, deps:deps};
-        }
-
-        function getDeps(deps){ /// loop through the deps associated with an implementation and return them in a json to the constructor
+        function getDeps(deps){ // loop through the deps associated with an implementation and return them in a json to the constructor
 
           var depObjs = {};
           var d;
@@ -26,6 +23,15 @@
 
         }
 
+        //PUBLIC
+
+
+        function registerComponentImp(name, implementation, deps){
+          services[name] = {implementation:implementation, deps:deps};
+        }
+
+
+
         function getImplementaion(name){
 
           var cla = services[name];
@@ -39,6 +45,4 @@
           getImplementaion: getImplementaion
         }
 
-}
-
-module.exports =  Container;
+};

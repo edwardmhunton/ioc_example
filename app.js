@@ -8,8 +8,6 @@ const FactoryWheels = require('./factoryWheels');
 
 function configureContainer (wheels){
 
-  //console.log(wheels);
-
   var container = new Container();
   container.registerComponentImp('wheel_builder', wheels, []);
   container.registerComponentImp('bike_builder', BikeBuilder, ['wheel_builder']);
@@ -29,7 +27,7 @@ function buildABike (wheels){
   container = configureContainer(w);
   var b = container.getImplementaion('bike_builder');
 
-  console.log(b.wheel_builder.addWheels());
+  console.log(b.wheel_builder.addWheels()); // demonstrates loose coupling as user has no knowledge of how 'addWheels' is performed
 
   console.log("Your Wheels Are Ready");
 
